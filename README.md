@@ -1,3 +1,6 @@
+# FORK
+Let's add some sophistication surrounding channel membership and prescence of others.
+
 # NOTE
 This project is no longer maintained. It was archieved 17 June 2020.
 
