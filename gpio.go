@@ -38,7 +38,11 @@ func (b *Talkiepi) initGPIO() {
 						if downTime<250 {
 							click = click+1
 							if click==2 {  // this is a double click and we need to toggle the connection
-								if b.Disconnect()
+								if b.IsConnected == false {
+									b.Connect()
+								} b.IsConnected == true {
+									b.Client.Disconnect()
+								}
 						} else {
 							b.TransmitStop()
 						}
@@ -54,13 +58,14 @@ func (b *Talkiepi) initGPIO() {
 				}
 
 			} else {
-				if currentState != 1 {
-					downTime = downTime+10
-				} else {
+				if currentState == 1 {
 					upTime = upTime+10
+				} else {
+					downTime = downTime+10
 				}
 				if downTime>250 && b.Stream != nil && err==nil {  // all right, it's down long enough to assume this is transmission
 					b.TransmitStart()
+					click = 0
 				}
 			}
 				
