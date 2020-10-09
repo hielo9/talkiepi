@@ -22,6 +22,10 @@ func (b *Talkiepi) initGPIO() {
 	ButtonPinPullUp.PullUp()
 
 	rpio.Close()
+	
+	upTime = 0
+	downTime = 0
+	click = 0
 
 	// unfortunately the gpio watcher stuff doesnt work for me in this context, so we have to poll the button instead
 	b.Button = gpio.NewInput(ButtonPin)
@@ -40,7 +44,7 @@ func (b *Talkiepi) initGPIO() {
 							if click==2 {  // this is a double click and we need to toggle the connection
 								if b.IsConnected == false {
 									b.Connect()
-								} b.IsConnected == true {
+								} else {
 									b.Client.Disconnect()
 								}
 						} else {
