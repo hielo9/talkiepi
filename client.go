@@ -43,7 +43,8 @@ func (b *Talkiepi) Connect() {
 	_, err = gumble.DialWithDialer(new(net.Dialer), b.Address, b.Config, &b.TLSConfig)
 	if err != nil {
 		fmt.Printf("Connection to %s failed (%s), attempting again in 10 seconds...\n", b.Address, err)
-		b.ReConnect()
+		// We don't actually want to automatically reconnect anymore -- just double click if you need to
+		//b.ReConnect()
 	} else {
 		b.OpenStream()
 	}
@@ -173,7 +174,8 @@ func (b *Talkiepi) OnDisconnect(e *gumble.DisconnectEvent) {
 	}
 
 	// attempt to connect again
-	b.ReConnect()
+	// We don't actually want to automatically reconnect anymore -- just double click if you need to
+	//b.ReConnect()
 }
 
 func (b *Talkiepi) ChangeChannel(ChannelName string) {
