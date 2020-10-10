@@ -57,11 +57,11 @@ func (b *Talkiepi) initGPIO() {
 						}
 					} else {
 						fmt.Printf("Button is pressed\n")
+						downTime = 0
 						// Let's see what's intended before transmitting
 						//b.TransmitStart()
 						if upTime>500 {  // this obviously wasn't a double click
 							click = 0
-							downTime = 0
 							fmt.Printf("over 500\n")
 						}
 					}
