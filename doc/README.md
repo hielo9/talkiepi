@@ -278,7 +278,7 @@ Install TalkiePi with:
 $cd $GOPATH/src
 $go get periph.io/x/periph/cmd/...
 $go get github.com/dchote/gopus
-$go get github.com/hielo/talkiepi
+$go get github.com/hielo9/talkiepi
 $go build -o $GOPATH/bin/talkiepi $GOPATH/src/github.com/hielo9/talkiepi/cmd/talkiepi/main.go
 ~~~
 
@@ -334,7 +334,7 @@ If all is well the Systemd service can be created. Copy the service file to the 
 
 ~~~
 $cd
-$sudo cp /home/pi/go/src/github.com/hielo/talkiepi/conf/systemd/mumble.service /etc/systemd/system/mumble.service
+$sudo cp /home/pi/go/src/github.com/hielo9/talkiepi/conf/systemd/mumble.service /etc/systemd/system/mumble.service
 ~~~
 
 Edit the service file with:
