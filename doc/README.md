@@ -129,16 +129,15 @@ $sudo apt install git
 ~~~
 
 ## SeeedStudio ReSpeaker 2-Mic HAT
-I was not able to get TalkiePi to work with the latest version (3.1) of seeed-voicecard. If anybody has a solution to this please let me know. In the meantime, we need to install an older version. 
+Ben Lewis had problems installing seeed-voicecard and was resorting to old versions of it, but I think I was able to get it working more easily for whatever reason.
 
 Install drivers with these commands:
 
 ~~~
-$wget https://github.com/respeaker/seeed-voicecard/archive/v3.0.tar.gz
-$tar -xvzf v3.0.tar.gz
-$mv seeed-voicecard-3.0 seeed-voicecard
+$git clone https://github.com/respeaker/seeed-voicecard
 $cd seeed-voicecard
-$sudo ./install.sh 2mic
+$sudo ./install.sh  --compat-kernel
+$sudo reboot
 ~~~
 
 Edit the ALSA configuration:
@@ -226,10 +225,11 @@ $alsamixer
 ~~~
 
 ## Install Prerequisites
+This was giving me compatibility troubles due to processor conflicts; let's install the right version of libopenal from the get-go.
 
 Install prerequisites with:
 ~~~
-$sudo apt install libopenal-dev libopus-dev golang
+$sudo apt install libopenal-dev:armhf libopus-dev golang
 ~~~
 
 ## Golang
@@ -283,7 +283,8 @@ $go get github.com/CustomMachines/talkiepi
 $go build -o $GOPATH/bin/talkiepi $GOPATH/src/github.com/CustomMachines/talkiepi/cmd/talkiepi/main.go
 ~~~
 
-The RPi Zero needs libopenal complied without ARM NEON support. These packages can be found in the [workarounds](https://github.com/CustomMachines/talkiepi/blob/master/workarounds) directory of this repo. They can be installed over the existing libopenal libraries.
+You can skip this now:
+  The RPi Zero needs libopenal complied without ARM NEON support. These packages can be found in the [workarounds (https://github.com/CustomMachines/talkiepi/blob/master/workarounds) directory of this repo. They can be installed over the existing libopenal libraries.
 
 ~~~
 $cd ~/go/src/github.com/CustomMachines/talkiepi/workarounds
