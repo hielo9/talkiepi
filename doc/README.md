@@ -111,7 +111,7 @@ Make the follow configuration changes:
 To save power the HDMI output can be disabled at boot.
 
 ~~~
-$sudo nano /etc/rc.local
+$sudo vi /etc/rc.local
 ~~~
 
 Add the following lines above exit 0:
@@ -137,7 +137,6 @@ Install drivers with these commands:
 $git clone https://github.com/respeaker/seeed-voicecard
 $cd seeed-voicecard
 $sudo ./install.sh  --compat-kernel
-$sudo reboot
 ~~~
 
 Edit the ALSA configuration:
@@ -145,7 +144,7 @@ Edit the ALSA configuration:
 ~~~
 $cp asound_2mic.conf ~/.asoundrc
 $cd
-$nano ~/.asoundrc
+$vi ~/.asoundrc
 ~~~
 
 Change the two occurrences of **"hw:0,0"** to **"hw:1,0"**.
@@ -254,7 +253,7 @@ $cd
 Edit the ~/.profile file with:
 
 ~~~
-$nano ~/.profile
+$vi ~/.profile
 ~~~
 
 Add the following text to the end of the file:
@@ -340,7 +339,7 @@ $sudo cp /home/pi/go/src/github.com/CustomMachines/talkiepi/conf/systemd/mumble.
 Edit the service file with:
 
 ~~~
-$sudo nano /etc/systemd/system/mumble.service
+$sudo vi /etc/systemd/system/mumble.service
 ~~~
 
 Replace **YOUR_SERVER:PORT** and **YOUR_USERNAME** with your Mumble server credentials.
