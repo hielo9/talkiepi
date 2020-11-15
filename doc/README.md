@@ -147,7 +147,7 @@ $cd
 $vi ~/.asoundrc
 ~~~
 
-Change the two occurrences of **"hw:0,0"** to **"hw:1,0"**.
+Change the two occurrences of **"hw:0,0" (or "hw:seeed2micvoicec"?)** to **"hw:1,0"**.
 
 The edited file should look like this.
 ~~~
