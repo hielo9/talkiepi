@@ -51,6 +51,7 @@ func (b *Talkiepi) initGPIO() {
 									fmt.Printf("click2 false\n")
 									b.Client.Disconnect()
 								}
+							}
 						} else {
 							fmt.Printf("stop transmitting\n")
 							b.TransmitStop()
